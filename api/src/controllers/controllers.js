@@ -110,27 +110,23 @@ const postDog = async(name, image, minHeight, maxHeight, minWeight, maxWeight, m
         const dogsApiDB = await getAllDogs();
         const nameLowerCase = name.toLowerCase();
         const dogName = dogsApiDB.find(dog => dog.name.toLowerCase() === nameLowerCase.trim());
-        if(dogName){
-            throw new Error('Dog already exists');
-        }
-        else if(!name || !minHeight || !maxHeight || !minWeight || !maxWeight || !minLifeSpan || !maxLifeSpan){
-            throw new Error('All information is required')
-        }
-        else if(name <= 0 || minHeight <= 0 || maxHeight <= 0 || minWeight <= 0 || maxWeight <= 0 || minLifeSpan <= 0 || maxLifeSpan <= 0){
+
+        if(dogName) throw new Error('Dog already exists');
+
+        if(!name || !minHeight || !maxHeight || !minWeight || !maxWeight || !minLifeSpan || !maxLifeSpan){
+            throw new Error('All information is required');
+        };
+        if(name <= 0 || minHeight <= 0 || maxHeight <= 0 || minWeight <= 0 || maxWeight <= 0 || minLifeSpan <= 0 || maxLifeSpan <= 0){
             throw new Error('information cannot be negative')
         }
-        else if(minWeight >= maxWeight){
-            throw new Error('minWeight cannot be equal or greater than maxWeight')
-        }
-        else if(minWeight >= maxWeight){
-            throw new Error('minWeight cannot be equal or greater than maxWeight')
-        }
-        else if(minHeight >= maxHeight){
-            throw new Error('minHeight cannot be equal or greater than maxHeight')
-        }
-        else if(minLifeSpan >= maxLifeSpan){
-            throw new Error('minLifeSpan cannot be equal or greater than maxLifeSpan')
-        }
+        if(minWeight >= maxWeight) throw new Error( 'minWeight cannot be equal or greater than maxWeight' );
+
+        if(minWeight >= maxWeight) throw new Error('minWeight cannot be equal or greater than maxWeight');
+
+        if(minHeight >= maxHeight) throw new Error('minHeight cannot be equal or greater than maxHeight');
+
+        if(minLifeSpan >= maxLifeSpan) throw new Error('minLifeSpan cannot be equal or greater than maxLifeSpan')
+
         const newDog = await Dog.create({
             name,
             image,
@@ -143,11 +139,24 @@ const postDog = async(name, image, minHeight, maxHeight, minWeight, maxWeight, m
             from: "DataBase"
         });
         return newDog
-    } catch (error) {
+    }
+    catch (error) {
         throw new Error(error);
     }
 }
 
+const deleteDog = async(id) => {
+    try {
+        const deleteDog = await Dog.destroy({
+            where: {
+                id,
+            }
+        });
+        return deleteDog
+    } catch (error) {
+        throw new Error(error);
+    }
+}
 
 module.exports = {
     getDogsApi,
@@ -155,5 +164,6 @@ module.exports = {
     getAllDogsByName,
     getDogByID,
     getTemperaments,
-    postDog
+    postDog,
+    deleteDog
 }

@@ -12,22 +12,35 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
     image:{
       type: DataTypes.JSONB,
       allowNull: false
     },
-    height:{
-      type: DataTypes.STRING,
+    minHeight:{
+      type: DataTypes.INTEGER,
       allowNull: false
     },
-    weight:{
-      type: DataTypes.STRING,
+    maxHeight:{
+      type: DataTypes.INTEGER,
       allowNull: false
     },
-    lifeSpan:{
-      type: DataTypes.STRING,
+    minWeight:{
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    maxWeight:{
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    minLifeSpan:{
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    maxLifeSpan:{
+      type: DataTypes.INTEGER,
       allowNull: false
     }
   },{ timestamps: false });

@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { Temperament } = require('../db.js');
-const { getAllDogs, getAllDogsByName, getDogByID, getTemperaments, postDog } = require('../controllers/controllers.js');
+const { getAllDogs, getAllDogsByName, getDogByID, getTemperaments, postDog, deleteDog} = require('../controllers/controllers.js');
 const { route } = require('./temproutes');
 
 const router = Router();
@@ -51,4 +51,16 @@ router.post('/', async(req, res) => {
         res.status(400).json({ error: error.message});
     };
 });
+
+router.delete('/:id', async(req, res) => {
+   try {
+    const { id } = req.params;
+    const delDog = await deleteDog(id)
+    res.status(200).json({ message: 'Dog removed'});
+   } 
+   catch (error) {
+    res.status(400).json({ error: error.message});
+   } 
+})
+
 module.exports = router;
