@@ -1,9 +1,16 @@
 import './App.css';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { LandingPage } from './component';
 
 function App() {
+  const location = useLocation();
+
+
   return (
     <div className="App">
-      <h1>Henry Dogs</h1>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+      </Routes>
     </div>
   );
 }
