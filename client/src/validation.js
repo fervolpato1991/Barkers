@@ -1,5 +1,5 @@
-const URL = /^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/;
-const NAME = /^[A-Za-zÑñÁáÉéÍíÓóÚú\s]+$/;
+const regexURL = /^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/;
+const regexNAME = /^[A-Za-zÑñÁáÉéÍíÓóÚú\s]+$/;
 
 const validation = (form) => {
 
