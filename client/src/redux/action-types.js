@@ -6,3 +6,6 @@ export const GET_DOG_BY_ID = 'GET_DOG_BY_ID';
 export const ALPHABETIC_SORT = 'ALPHABETIC_SORT';
 export const WEIGHT_SORT = 'WEIGHT_SORT';
 export const TEMPERAMENT_FILTER = 'TEMPERAMENT_FILTER';
+export const RESET_FILTER = 'RESET_FILTER';
+export const RESET_DOG = 'RESET_DOG';
+export const RESET_DOGS = 'RESET_DOGS';

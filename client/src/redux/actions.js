@@ -1,4 +1,4 @@
-import { GET_ALL_DOGS, GET_ALL_TEMPERAMENTS, API_OR_DB_FILTER, GET_DOGS_BY_NAME, GET_DOG_BY_ID, ALPHABETIC_SORT, WEIGHT_SORT, TEMPERAMENT_FILTER } from './action-types';
+import { GET_ALL_DOGS, GET_ALL_TEMPERAMENTS, API_OR_DB_FILTER, GET_DOGS_BY_NAME, GET_DOG_BY_ID, ALPHABETIC_SORT, WEIGHT_SORT, TEMPERAMENT_FILTER, RESET_FILTER, RESET_DOG, RESET_DOGS } from './action-types';
 import axios from 'axios';
 
 export const getAllDogs = () => {
@@ -66,10 +66,10 @@ export const alphabeticSort = (dogs, value) => {
 export const weightSort = (dogs, value) => {
     try {
         let sortDogs = [];
-        if (value === 'highToLow'){
+        if (value === 'heavyToLight'){
             sortDogs = dogs.sort((a, b) => (a.minWeight < b.minWeight) ? 1 : (a.minWeight > b.minWeight) ? -1 : 0);
         }
-        if(value === 'lowToHigh'){
+        if(value === 'lightToHeavy'){
             sortDogs = dogs.sort((a, b) => (a.minWeight > b.minWeight) ? 1 : (a.minWeight < b.minWeight) ? -1 : 0);
         }
         return (dispatch) => {
@@ -98,13 +98,37 @@ export const apiOrDbFilter = (dogs, value) => {
         throw new Error(error);
     }
 };
-export const temperamentsFilter = (dogs, value) => {
+export const temperamentFilter = (dogs, value) => {
     try {
         let dogFilter = [];
         dogs.forEach(dog => {
-            if(dog.from === value) dogFilter.push(dog);
+            const temps = [];
+            if(dog.temperaments) temps.push(...dog.temperaments.split(", "));
+            if(temps.includes(value)) dogFilter.push(dog);
         })
+        return (dispatch) => {
+            dispatch({
+                type: TEMPERAMENT_FILTER,
+                payload: dogFilter
+            })
+        }
     } catch (error) {
         throw new Error(error)
+    }
+};
+export const resetFilter = () => {
+    return function (dispatch) {
+        dispatch({ type: RESET_FILTER })
+    }
+};
+
+export const resetDog = () => {
+    return function (dispatch) {
+        dispatch({ type: RESET_DOG })
+    }
+};
+export const resetDogs = () => {
+    return function (dispatch) {
+        dispatch({ type: RESET_DOGS })
     }
 };
