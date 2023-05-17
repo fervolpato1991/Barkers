@@ -8,7 +8,7 @@ const LandingPage = () => {
             <p className={style.description}>You will find here all dog breeds and their temperaments</p>
             <div>
                 <form action="/home" >
-                    <input type="submit" value="Start" className={style.button}/>
+                    <input type="submit" value="Hop in" className={style.button}/>
                     </form>
                 </div>
         </div>
