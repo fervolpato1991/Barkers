@@ -5,7 +5,6 @@ import APIorDBFilter from '../APIorDBFilter/APIorDBFilter';
 import TemperamentFilter from '../TemperamentFilter/TemperamentFilter';
 import Pagination from '../Pagination/Pagination';
 import SearchBar from '../SearchBar/SearchBar';
-import NavBar from '../NavBar/NavBar';
 import Cards from '../Cards/Cards';
 import AlphabeticSort from '../AlphabeticSort/AlphabeticSort';
 import WeightSort from '../WeightSort/WeightSort';
@@ -117,8 +116,8 @@ const HomePage = () => {
                     <li><SearchBar/></li>
                     <li><AlphabeticSort dogs={dogs}/></li>
                     <li><WeightSort dogs={dogs}/></li>
-                    <li><APIorDBFilter formAPIDB={formAPIDB}/></li>
-                    
+                    <li><APIorDBFilter formAPIDB={formAPIDB} APIorDBHandler={APIorDBHandler}/></li>
+                    <li><TemperamentFilter form={form} allTemperaments={allTemperaments} temperamentsHandler={temperamentsHandler}/></li>
                 </ul>
             </div>
             <Pagination firstHandler={firstHandler} prevHandler={prevHandler} nextHandler={nextHandler} lastHandler={lastHandler} pagination={pagination} totalDogs={dogs.length} dogsPerPage={dogsPerPage} currentPage={currentPage} pageNumberLimit={pageNumberLimit} minPageNumberLimit={minPageNumberLimit} maxPageLimit={maxPageNumberLimit}/>

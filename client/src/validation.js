@@ -16,7 +16,7 @@ const validation = (form) => {
         isError = true;
     }
     if(form.minHeight <= 0){
-        error.minHeight = "The minHeight must be greater than 0";
+        error.minHeight = "The minimum height must be greater than 0";
         isError = true;
     }
     if(form.minWeight <= 0){

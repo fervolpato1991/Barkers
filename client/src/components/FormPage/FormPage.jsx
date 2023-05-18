@@ -12,6 +12,7 @@ const FormPage = () => {
     const [apiResponse, setApiResponse] = useState("");
     const [isApiError, setIsApiError] = useState(false);
     const [errors, setErrors] = useState({});
+    const [modal, setModal] = useState(false);
 
     const [form, setForm] = useState({
         name: "",
@@ -41,6 +42,7 @@ const FormPage = () => {
             .then(response => {
                 setIsApiError(false);
                 setApiResponse(response.data.message);
+                setModal(!modal);
                 setErrors({});
                 setForm({
                     name: "",
@@ -57,6 +59,7 @@ const FormPage = () => {
             .catch((error) => {
                 setIsApiError(true);
                 setApiResponse(error.response.data.error);
+                setModal(!modal);
                 setErrors({});
             });
         }
@@ -77,39 +80,60 @@ const FormPage = () => {
             temperaments: form.temperaments.filter((temperament) => temperament !== element)
         })
     };
+
+    const toggleModal = () => {
+        setModal(!modal)
+    }
+
+    if(modal){
+        document.body.classList.add('active-modal');
+    }else{
+        document.body.classList.remove('active-modal');
+    }
     return (
         <form onSubmit={submitHandler} className={style.form}>
+           {(modal) && (
             <div>
+                <div onClick={toggleModal}></div>
                 {isApiError ? <h2>Sorry, there is an error with the info</h2>
                  : <h2>Dog's breed created</h2>
                  }
                  <p>{apiResponse}</p>
+                 <button onClick={toggleModal}>x</button>
             </div>
+           ) 
+            }
             <div className={style.newDog}>
                 <h2>Create a Dog:</h2>
                 <label>Name: </label>
                 <input type="text" value={form.name} name="name" onChange={changeHandler}/>
+                {errors.name && <p>{errors.name}</p>}
                 <br/>
                 <label>Image URL: </label>
                 <input type="url" value={form.image} name="image" onChange={changeHandler}/>
+                {errors.image && <p>{errors.image}</p>}
                 <br/>
                 <label>Minimum Height: </label>
                 <input type="number" value={form.minHeight} name="minHeight" onChange={changeHandler}/>
+                {errors.minHeight && <p>{errors.minHeight}</p>}
                 <br/>
                 <label>Maximum Height: </label>
                 <input type="number" value={form.maxHeight} name="maxHeight" onChange={changeHandler}/>
                 <br/>
                 <label>Minimum Weight: </label>
                 <input type="number" value={form.minWeight} name="minWeight" onChange={changeHandler}/>
+                {errors.minWeight && <p>{errors.minWeight}</p>}
                 <br/>
                 <label>Maximum Weight: </label>
                 <input type="number" value={form.maxWeight} name="maxWeight" onChange={changeHandler}/>
                 <br/>
                 <label>Minimum Life Span: </label>
                 <input type="number" value={form.minLifeSpan} name="minLifeSpan" onChange={changeHandler}/>
+                {errors.minLifeSpan && <p>{errors.minLifeSpan}</p>}
                 <br/>
                 <label>Maximum Life Span: </label>
                 <input type="number" value={form.maxLifeSpan} name="maxLifeSpan" onChange={changeHandler}/>
+                {errors.maxLifeSpan && <p>{errors.maxLifeSpan}</p>}
                 <br/>
                 <label>Temperaments: </label>
                 <select onChange={selectHandler}>
@@ -128,6 +152,7 @@ const FormPage = () => {
                     ))}
                 </div>
             </div>
+            <button type="submit" className={style.submit}>Create Dog</button>
         </form>
     )
 }
