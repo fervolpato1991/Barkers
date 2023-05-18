@@ -66,11 +66,13 @@ export const alphabeticSort = (dogs, value) => {
 export const weightSort = (dogs, value) => {
     try {
         let sortDogs = [];
-        if (value === 'heavyToLight'){
-            sortDogs = dogs.sort((a, b) => (a.minWeight < b.minWeight) ? 1 : (a.minWeight > b.minWeight) ? -1 : 0);
+        if (value === 'high-low'){
+            sortDogs = dogs.sort((a, b) => 
+            (a.minWeight < b.minWeight) ? 1 : (a.minWeight > b.minWeight) ? -1 : 0);
         }
-        if(value === 'lightToHeavy'){
-            sortDogs = dogs.sort((a, b) => (a.minWeight > b.minWeight) ? 1 : (a.minWeight < b.minWeight) ? -1 : 0);
+        if(value === 'low-high'){
+            sortDogs = dogs.sort((a, b) => 
+            (a.minWeight > b.minWeight) ? 1 : (a.minWeight < b.minWeight) ? -1 : 0);
         }
         return (dispatch) => {
             dispatch({

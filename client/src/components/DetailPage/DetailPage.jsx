@@ -1,14 +1,20 @@
-import { React, useEffect, useState } from 'react';
-import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { getDogById } from '../../redux/actions';
+import DetailCard from '../DetailCard/DetailCard';
 import style from './DetailPage.module.css';
 
 const DetailPage = () => {
-   
+    const { id } = useParams();
+    const dispatch = useDispatch();
 
+    useEffect(() => {
+        dispatch(getDogById(id));
+    }, [dispatch, id]);
     return (
-        <div>
-            <h2>Detail Page</h2>
+        <div className={style.container}>
+            <DetailCard/>
         </div>
     )
 }

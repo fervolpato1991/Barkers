@@ -110,7 +110,7 @@ const HomePage = () => {
         dispatch(getAllDogs());
     }
     return (
-        <div>
+        <div className={style.container}>
             <div>
                 <ul>
                     <li><SearchBar/></li>
@@ -118,6 +118,7 @@ const HomePage = () => {
                     <li><WeightSort dogs={dogs}/></li>
                     <li><APIorDBFilter formAPIDB={formAPIDB} APIorDBHandler={APIorDBHandler}/></li>
                     <li><TemperamentFilter form={form} allTemperaments={allTemperaments} temperamentsHandler={temperamentsHandler}/></li>
+                    <li><button type='submit' onClick={clearHandler}>Close Filters</button></li>
                 </ul>
             </div>
             <Pagination firstHandler={firstHandler} prevHandler={prevHandler} nextHandler={nextHandler} lastHandler={lastHandler} pagination={pagination} totalDogs={dogs.length} dogsPerPage={dogsPerPage} currentPage={currentPage} pageNumberLimit={pageNumberLimit} minPageNumberLimit={minPageNumberLimit} maxPageLimit={maxPageNumberLimit}/>

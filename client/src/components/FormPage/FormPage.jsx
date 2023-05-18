@@ -58,7 +58,7 @@ const FormPage = () => {
             })
             .catch((error) => {
                 setIsApiError(true);
-                setApiResponse(error.response.data.error);
+                setApiResponse(error.response?.data?.error);
                 setModal(!modal);
                 setErrors({});
             });
@@ -148,7 +148,7 @@ const FormPage = () => {
                 <h3>Temperaments selected: </h3>
                 <div>
                     {form.temperaments.map((element) => (
-                        <div><span key={element}>{element}</span><button onClick={() => deleteHandler(element)}>x</button></div>
+                        <div key={element}><span>{element}</span><button onClick={() => deleteHandler(element)}>x</button></div>
                     ))}
                 </div>
             </div>

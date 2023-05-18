@@ -1,0 +1,73 @@
+.card {
+    height: 400px;
+    width: 320px;
+    background-color: rgba(255, 255, 255, 0.06);
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+     margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 8px;
+    -webkit-box-shadow: 20px 20px 22px rgba(0,0,0,0.2);
+            box-shadow: 20px 20px 22px rgba(0,0,0,0.2);
+    font-family: 'Poppins',sans-serif;
+    border-radius: 5%;
+}
+.image{
+    height: 11rem;
+    width: 11rem;
+    background-color: rgba(255, 255, 255, 0.06);
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+    border-radius: 20%;
+    position: absolute;
+    margin: 30px auto 20px  auto;
+    left: 0;
+    right: 0;
+    top: 0%;
+
+}
+.link {
+    display: inline-block;
+	color: black;
+    height: 15%;
+    width: 40%;
+	text-decoration: none;
+	border-radius: 0.6rem;
+	font-weight: 400;
+	border: 0.35rem solid;
+    position: relative;
+    top: 75%;
+    left: 2%;
+}
+.temperaments{
+    color: #000000;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 0.7px;
+    margin: 5px 0;
+    position: relative;
+    top: 35%;
+    left: 2%;
+}
+.weight{
+    color: #080707;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin: 5px 0;
+    position: relative;
+    top: 35%;
+    left: 2%;
+}
+
+.details{
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin: 5px 0;
+    position: relative;
+    top: 35%;
+    left: 2%;
+}

@@ -1,25 +1,26 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { weightSort } from '../../redux/actions';
-import styles from './WeightSort.module.css';
+import React from "react";
+import { weightSort } from "../../redux/actions";
+import { useDispatch } from "react-redux";
+import style from "./WeightSort.module.css"
 
-const WeightSort = ({dogs}) => {
+const WeightSort = ({ dogs }) => {
     const dispatch = useDispatch();
-    
-    const weightSortHandler = (event) => {
+
+    const sortHandlerLH = (event) => {
         const value = event.target.value;
         dispatch(weightSort(dogs, value));
     }
+
     return (
-        <div className={styles.container}>
-            <h2>Sort by dog weight:</h2>
-            <select onChange={weightSortHandler}>
-                <option>Select weight order:</option>
-                <option value='heavyToLight' name='heavyToLight'>Heavy to light</option>
-                <option value='lightToHeavy' name='lightToHeavy'>Light to heavy</option>
+        <div className={style.container}>
+            <h1> Sort by weight</h1>
+            <select onChange={sortHandlerLH}>
+                <option disabled defaultValue selected>Select order</option>
+                <option name="low-high" value="low-high">Low to high</option>
+                <option name="high-low" value="high-low">High to low</option>
             </select>
         </div>
     )
 }
 
-export default WeightSort
+export default WeightSort;

@@ -6,7 +6,7 @@ const TemperamentFilter = ({form, allTemperaments, temperamentsHandler}) => {
         <div className={style.container}>
             <h1>Filter by temperament</h1>
             <select onChange={temperamentsHandler}>
-                <option disabled defaultValue selected> Select temperament</option>
+                <option defaultValue> Select temperament</option>
                 {allTemperaments.map((temp) => {
                     return (
                         <option key={temp.id} name={temp.name}>
