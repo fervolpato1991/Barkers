@@ -3,8 +3,8 @@ import style from "./NavBar.module.css";
 
 const NavBar = () => {
     return (
-    <nav className={style.container}>
-        <div>
+    <nav>
+        <div className={style.container}>
             <form action="/home" >
                 <input type="submit" value="Home" className={style.button}/>
             </form>

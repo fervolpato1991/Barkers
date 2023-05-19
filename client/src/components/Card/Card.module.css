@@ -1,23 +1,19 @@
 .card {
-    height: 400px;
-    width: 320px;
+    height: 26rem;
+    width: 20rem;
     background-color: rgba(255, 255, 255, 0.06);
     -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
      margin: auto;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    border-radius: 8px;
-    -webkit-box-shadow: 20px 20px 22px rgba(0,0,0,0.2);
-            box-shadow: 20px 20px 22px rgba(0,0,0,0.2);
+    border-radius: 30px;
+    box-shadow: 15px 15px 30px rgb(25, 25, 25),
+    -15px -15px 30px rgb(60, 60, 60);
     font-family: 'Poppins',sans-serif;
-    border-radius: 5%;
+    border-radius: 8%;
 }
 .image{
     height: 11rem;
-    width: 11rem;
+    width: 14rem;
     background-color: rgba(255, 255, 255, 0.06);
     -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
@@ -35,9 +31,8 @@
     height: 15%;
     width: 40%;
 	text-decoration: none;
-	border-radius: 0.6rem;
+	border-radius: 2rem;
 	font-weight: 400;
-	border: 0.35rem solid;
     position: relative;
     top: 75%;
     left: 2%;
@@ -64,10 +59,11 @@
 }
 
 .details{
-    font-size: 14px;
+    font-size: 1rem;
     letter-spacing: 1px;
     margin: 5px 0;
     position: relative;
-    top: 35%;
-    left: 2%;
+    top: 30%;
+    left: 0%;
+    display:inline;
 }
