@@ -1,0 +1,12 @@
+.container{
+    position: absolute;
+    bottom: 83%;
+    left: 33%;
+}
+.title{
+    font-size: 1.2em;
+    font-style: italic;
+    transition:.6s;
+	color: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
+    text-shadow: 2px 2px 10px rgb(66, 66, 73);
+}

@@ -53,17 +53,17 @@ const DetailCard = () => {
                 </Link>
             </div> : null}
             <div>
-                <h2>{dog.name}</h2>
-                <p>From: {dog.from}</p>
-                <h3>Weight:</h3>
-                <p>{dog.minWeight} - {dog.maxWeight} kgs</p>
-                <h3>Height:</h3>
-                <p>{dog.minHeight} - {dog.maxHeight} cm</p>
-                <h3>Life span:</h3>
-                <p>{dog.minLifeSpan} - {dog.maxLifeSpan} years</p>
-                <h3>Temperament:</h3>
-                <p>{dog.temperaments}</p>
-                <img src={dog.image} alt={dog.name}/>
+                <h2 className={style.title}>{dog.name}</h2>
+                <p className={style.description}>From: {dog.from}</p>
+                <h3 className={style.title}>Weight:</h3>
+                <p className={style.description}>{dog.minWeight} - {dog.maxWeight} kgs</p>
+                <h3 className={style.title}>Height:</h3>
+                <p className={style.description}>{dog.minHeight} - {dog.maxHeight} cm</p>
+                <h3 className={style.title}>Life span:</h3>
+                <p className={style.description}>{dog.minLifeSpan} - {dog.maxLifeSpan} years</p>
+                <h3 className={style.title}>Temperament:</h3>
+                <p className={style.description}>{dog.temperaments}</p>
+                <img src={dog.image} alt={dog.name} className={style.image}/>
             </div>
         </div>
     )

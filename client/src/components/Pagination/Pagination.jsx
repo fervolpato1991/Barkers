@@ -26,16 +26,16 @@ const Pagination = ({
         }
 
     return (
-        <div className={style.allButtons}>
-            <button onClick={()=>firstHandler(firstPage)}>First</button>
-            <button onClick={prevHandler}>Prev</button>
+        <div className={style.container}>
+            <button onClick={()=>firstHandler(firstPage)} className={style.button}>First</button>
+            <button onClick={prevHandler} className={style.button}>Prev</button>
             {numPages?.map((page) => {
                 if(page >= minPageLimit && page < maxPageLimit){
                     return <button id={page} key={page} onClick={() => pagination(page)}>{page + 1}</button>
                 }else return null;
             })}
-            <button onClick={nextHandler}>Next</button>
-            <button onClick={()=>lastHandler(lastPage)}>Last</button>
+            <button onClick={nextHandler} className={style.button}>Next</button>
+            <button onClick={()=>lastHandler(lastPage)} className={style.button}>Last</button>
         </div>
     )
 }

@@ -13,7 +13,7 @@ const WeightSort = ({ dogs }) => {
 
     return (
         <div className={style.container}>
-            <h1> Sort by weight</h1>
+            <h1 className={style.title}>Sort by weight: </h1>
             <select onChange={sortHandlerLH}>
                 <option disabled defaultValue selected>Select order</option>
                 <option name="low-high" value="low-high">Low to high</option>

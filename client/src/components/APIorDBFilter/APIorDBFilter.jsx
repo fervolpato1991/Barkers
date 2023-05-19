@@ -3,8 +3,8 @@ import style from './APIorDBFilter.module.css';
 
 const APIorDBFilter = ({formAPIDB, APIDBHandler}) => {
     return (
-        <div>
-            <h1 className={style.container}>Filter by API or DB</h1>
+        <div className={style.container}>
+            <h1 className={style.title}>Filter by API or DB</h1>
             <select onChange={APIDBHandler}>
                 <option>Select Filter:</option>
                 <option name="API">API</option>

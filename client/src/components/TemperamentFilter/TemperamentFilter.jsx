@@ -4,7 +4,7 @@ import style from "./TemperamentFilter.module.css";
 const TemperamentFilter = ({form, allTemperaments, temperamentsHandler}) => {
     return (
         <div className={style.container}>
-            <h1>Filter by temperament</h1>
+            <h1 className={style.title}>Filter by temperament</h1>
             <select onChange={temperamentsHandler}>
                 <option defaultValue> Select temperament</option>
                 {allTemperaments.map((temp) => {
