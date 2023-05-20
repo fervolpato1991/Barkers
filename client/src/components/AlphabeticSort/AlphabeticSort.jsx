@@ -8,7 +8,7 @@ const AlphabeticSort = ({dogs}) => {
 
     const alphabeticSortHandler = (event) => {
         const value = event.target.value;
-        dispatch(alphabeticSort(dogs, value))
+        dispatch(alphabeticSort(dogs, value));
     }
 
     return (

@@ -1,6 +1,7 @@
 .searchbar{
     position: absolute;
     background-color:rgba(199, 199, 199, 0.55);
+    left: -1rem;
     width:80rem;
     margin:100px auto;
     -webkit-box-sizing:border-box;
@@ -26,11 +27,11 @@
         
 }
 .input {
+    background-color: rgba(199, 199, 199, 0.55);
     position: absolute;
     bottom: -17%;
     left: 72%;
     margin: 30px;
-    background: none;
     border: none;
     outline: none;
     max-width: 190px;
@@ -38,7 +39,6 @@
     font-size: 16px;
     border-radius: 9999px;
     box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
-    color: #fff;
   }
   .input::placeholder{
     color: #100f0f;
@@ -52,7 +52,7 @@
     left: 44%;
     bottom: -0.8rem;
     margin: 30px;
-    background: none;
+    background-color: rgba(199, 199, 199, 0.55);
     border: none;
     outline: none;
     padding: 0.5rem 0.5rem 0.5rem 0.4rem;

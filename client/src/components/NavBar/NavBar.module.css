@@ -10,6 +10,7 @@ Por una cuestion de espacio, entre otras cosas*/
     bottom: 23rem;
     left: 32rem;
     padding: 1rem 2rem;
+    background-color: rgba(199, 199, 199, 0.55);
     -webkit-box-sizing:border-box;
     -moz-box-sizing:border-box;
     box-sizing:border-box;
@@ -42,7 +43,11 @@ Por una cuestion de espacio, entre otras cosas*/
     border: none;
     outline: none;
     padding: 0.5rem 0.5rem 0.5rem 0.4rem;
+    margin-left: 1rem;
     font-size: 0.9rem;
     border-radius: 9999px;
     box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
 }
+.button:hover {
+    transform: translate(5px, -5px);
+  }

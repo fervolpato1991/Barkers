@@ -93,50 +93,50 @@ const FormPage = () => {
     return (
         <form onSubmit={submitHandler} className={style.form}>
            {(modal) && (
-            <div>
+            <div className={style.containermodal}>
                 <div onClick={toggleModal}></div>
-                {isApiError ? <h2>Sorry, there is an error with the info</h2>
+                {isApiError ? <h2 className={style.modaltitle}>Sorry, there is an error with the info</h2>
                  : <h2>Dog's breed created</h2>
                  }
                  <p>{apiResponse}</p>
-                 <button onClick={toggleModal}>x</button>
+                 <button onClick={toggleModal} className={style.modalbutton}>x</button>
             </div>
            ) 
             }
-            <div className={style.newDog}>
-                <h2>Create a Dog:</h2>
-                <label>Name: </label>
-                <input type="text" value={form.name} name="name" onChange={changeHandler}/>
-                {errors.name && <p>{errors.name}</p>}
+            <div className={style.container}>
+                <h2 className={style.mainTitle}>Create a Dog:</h2>
+                <label className={style.title}>Name: </label>
+                <input className={style.input} type="text" value={form.name} name="name" onChange={changeHandler}/>
+                {errors.name && <p className={style.error}>{errors.name}</p>}
                 <br/>
-                <label>Image URL: </label>
-                <input type="url" value={form.image} name="image" onChange={changeHandler}/>
-                {errors.image && <p>{errors.image}</p>}
+                <label className={style.title}>Image URL: </label>
+                <input className={style.input} type="url" value={form.image} name="image" onChange={changeHandler}/>
+                {errors.image && <p className={style.error}>{errors.image}</p>}
                 <br/>
-                <label>Minimum Height: </label>
-                <input type="number" value={form.minHeight} name="minHeight" onChange={changeHandler}/>
-                {errors.minHeight && <p>{errors.minHeight}</p>}
+                <label className={style.title}>Minimum Height: </label>
+                <input className={style.input} type="number" value={form.minHeight} name="minHeight" onChange={changeHandler}/>
+                {errors.minHeight && <p className={style.error}>{errors.minHeight}</p>}
                 <br/>
-                <label>Maximum Height: </label>
-                <input type="number" value={form.maxHeight} name="maxHeight" onChange={changeHandler}/>
+                <label className={style.title}>Maximum Height: </label>
+                <input className={style.input} type="number" value={form.maxHeight} name="maxHeight" onChange={changeHandler}/>
                 <br/>
-                <label>Minimum Weight: </label>
-                <input type="number" value={form.minWeight} name="minWeight" onChange={changeHandler}/>
-                {errors.minWeight && <p>{errors.minWeight}</p>}
+                <label className={style.title}>Minimum Weight: </label>
+                <input className={style.input} type="number" value={form.minWeight} name="minWeight" onChange={changeHandler}/>
+                {errors.minWeight && <p className={style.error}>{errors.minWeight}</p>}
                 <br/>
-                <label>Maximum Weight: </label>
-                <input type="number" value={form.maxWeight} name="maxWeight" onChange={changeHandler}/>
+                <label className={style.title}>Maximum Weight: </label>
+                <input className={style.input} type="number" value={form.maxWeight} name="maxWeight" onChange={changeHandler}/>
                 <br/>
-                <label>Minimum Life Span: </label>
-                <input type="number" value={form.minLifeSpan} name="minLifeSpan" onChange={changeHandler}/>
-                {errors.minLifeSpan && <p>{errors.minLifeSpan}</p>}
+                <label className={style.title}>Minimum Life Span: </label>
+                <input className={style.input} type="number" value={form.minLifeSpan} name="minLifeSpan" onChange={changeHandler}/>
+                {errors.minLifeSpan && <p className={style.error}>{errors.minLifeSpan}</p>}
                 <br/>
-                <label>Maximum Life Span: </label>
-                <input type="number" value={form.maxLifeSpan} name="maxLifeSpan" onChange={changeHandler}/>
-                {errors.maxLifeSpan && <p>{errors.maxLifeSpan}</p>}
+                <label className={style.title}>Maximum Life Span: </label>
+                <input className={style.input} type="number" value={form.maxLifeSpan} name="maxLifeSpan" onChange={changeHandler}/>
+                {errors.maxLifeSpan && <p className={style.error}>{errors.maxLifeSpan}</p>}
                 <br/>
-                <label>Temperaments: </label>
-                <select onChange={selectHandler}>
+                <label className={style.tempselect}>Temperaments: </label>
+                <select onChange={selectHandler} className={style.temps}>
                     <option>Select Temperaments: </option>
                     {allTemperaments.map((temperament) => {
                         return (
@@ -145,14 +145,14 @@ const FormPage = () => {
                     })}
                 </select>
                 <br/>
-                <h3>Temperaments selected: </h3>
-                <div>
+                <h3 className={style.temptitle}>Temperaments selected: </h3>
+                <div className={style.tempcontainer}>
                     {form.temperaments.map((element) => (
-                        <div key={element}><span>{element}</span><button onClick={() => deleteHandler(element)}>x</button></div>
+                        <div key={element}><span>{element}</span><button className={style.tempbutton} onClick={() => deleteHandler(element)}>x</button></div>
                     ))}
                 </div>
             </div>
-            <button type="submit" className={style.submit}>Create Dog</button>
+            <button type="submit" className={style.button}>Create Dog</button>
         </form>
     )
 }
