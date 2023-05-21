@@ -16,8 +16,8 @@ const AlphabeticSort = ({dogs}) => {
             <h2 className={style.title}>Sort by dog name:</h2>
             <select onChange={alphabeticSortHandler}className={style.select}>
                 <option className={style.option}>Select order:</option>
-                <option name="ascendant" className={style.option}>ascendant</option>
-                <option name="descendant" className={style.option}>descendant</option>
+                <option value="ascendant" className={style.option}>ascendant</option>
+                <option value="descendant" className={style.option}>descendant</option>
             </select>
         </div>
     )

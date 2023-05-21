@@ -7,7 +7,7 @@ Por una cuestion de espacio, entre otras cosas*/
     display: flex;
     flex-direction: row;
     position: absolute;
-    bottom: 23rem;
+    bottom: 22.4rem;
     left: 32rem;
     padding: 1rem 2rem;
     background-color: rgba(199, 199, 199, 0.55);

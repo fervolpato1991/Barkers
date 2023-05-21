@@ -9,99 +9,103 @@ import style from './FormPage.module.css';
 const FormPage = () => {
     const dispatch = useDispatch();
     const allTemperaments = useSelector(state => state.temperaments);
+    const [errors, setErrors] = useState({})
+    const [modal, setModal] = useState(false);
     const [apiResponse, setApiResponse] = useState("");
     const [isApiError, setIsApiError] = useState(false);
-    const [errors, setErrors] = useState({});
-    const [modal, setModal] = useState(false);
-
-    const [form, setForm] = useState({
-        name: "",
-        image: "",
-        minLifeSpan: 0,
-        maxLifeSpan: 0,
-        minWeight: 0,
-        maxWeight: 0,
-        minHeight: 0,
-        maxHeight: 0,
-        temperaments: []
-    });
 
     useEffect(() => {
         dispatch(getAllTemperaments());
     }, [dispatch]);
 
+
+    const [form, setForm] = useState({
+        name: "",
+        image: "",
+        minHeight: 0,
+        maxHeight: 0,
+        minWeight: 0,
+        maxWeight: 0,
+        minLifeSpan: 0,
+        maxLifeSpan: 0,
+        temperaments: []
+    });
+
+    const toggleModal = () => {
+        setModal(!modal);
+    };
+
+    if (modal) {
+        document.body.classList.add('active-modal')
+    } else {
+        document.body.classList.remove('active-modal')
+    }
+
     const changeHandler = (event) => {
         const { name, value } = event.target;
-        setForm({ ...form, [name]: value });
+        setForm({ ...form, [name]: value })
     }
+
     const submitHandler = (event) => {
         event.preventDefault();
         const error = validation(form);
-        if(error === null) {
-            axios.post('https://localhost:3001/dogs', form)
-            .then(response => {
-                setIsApiError(false);
-                setApiResponse(response.data.message);
-                setModal(!modal);
-                setErrors({});
-                setForm({
-                    name: "",
-                    image: "",
-                    minLifeSpan: 0,
-                    maxLifeSpan: 0,
-                    minWeight: 0,
-                    maxWeight: 0,
-                    minHeight: 0,
-                    maxHeight: 0,
-                    temperaments: []
+        if (error === null) {
+            axios.post("http://localhost:3001/dogs", form)
+                .then(res => {
+                    setIsApiError(false);
+                    setApiResponse(res.data.message);
+                    setModal(!modal);
+                    setErrors({});
+                    setForm({
+                        name: "",
+                        image: "",
+                        minHeight: 0,
+                        maxHeight: 0,
+                        minWeight: 0,
+                        maxWeight: 0,
+                        minLifeSpan: 0,
+                        maxLifeSpan: 0,
+                        temperaments: []
+                    });
                 })
-            })
-            .catch((error) => {
-                setIsApiError(true);
-                setApiResponse(error.response?.data?.error);
-                setModal(!modal);
-                setErrors({});
-            });
+                .catch((error) => {
+                    setIsApiError(true);
+                    setApiResponse(error.response.data.error);
+                    setModal(!modal);
+                    setErrors({});
+                });
         }
         else {
             setErrors(error);
         }
     }
 
-    const selectHandler = (event) => {
+    function selectHandler(event) {
         setForm({
-            ...form, 
-            temperaments: [...form.temperaments, event.target.value]
-        })
-    };
-    const deleteHandler = (element) => {
-        setForm({
-            ...form, 
-            temperaments: form.temperaments.filter((temperament) => temperament !== element)
-        })
-    };
-
-    const toggleModal = () => {
-        setModal(!modal)
+            ...form, temperaments: [...form.temperaments, event.target.value],
+        });
     }
 
-    if(modal){
-        document.body.classList.add('active-modal');
-    }else{
-        document.body.classList.remove('active-modal');
+    function deleteHandler(element) {
+        setForm({
+            ...form, temperaments: form.temperaments.filter((temp) => temp !== element),
+        });
     }
     return (
         <form onSubmit={submitHandler} className={style.form}>
-           {(modal) && (
-            <div className={style.containermodal}>
-                <div onClick={toggleModal}></div>
-                {isApiError ? <h2 className={style.modaltitle}>Sorry, there is an error with the info</h2>
-                 : <h2>Dog's breed created</h2>
-                 }
-                 <p>{apiResponse}</p>
-                 <button onClick={toggleModal} className={style.modalbutton}>x</button>
-            </div>
-           ) 
+            {(modal) && (
+                <div className={style.containermodal}>
+                    <div onClick={toggleModal}></div>
+                    <div>
+                        {isApiError ?
+                        <h2>Sorry, the information is wrong </h2>
+                        :
+                        <h2> New Breed Created! </h2>}
+                        <p className={style.response}>{apiResponse}</p>
+                         < button className={style.closemodal} onClick={toggleModal}>X</button>
+                    </div>
+                </div>
+            )
             }
             <div className={style.container}>
                 <h2 className={style.mainTitle}>Create a Dog:</h2>
@@ -152,7 +156,7 @@ const FormPage = () => {
                     ))}
                 </div>
             </div>
-            <button type="submit" className={style.button}>Create Dog</button>
+            <button type="submit" className={style.button} disabled={!form.name || !form.image||!form.minHeight||!form.maxHeight||!form.minWeight||!form.maxWeight||!form.minLifeSpan||!form.maxLifeSpan}>Create Dog</button>
         </form>
     )
 }

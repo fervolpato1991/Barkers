@@ -26,15 +26,37 @@ const validation = (form) => {
     if(form.minLifeSpan <= 0){
         error.minLifeSpan = "The minLifeSpan must be greater than 0";
         isError = true;
-    }else if(form.minLifeSpan > 20) {
+    }
+    if(form.minLifeSpan > 20) {
         error.minLifeSpan = "The minLifeSpan must be less than 20";
         isError = true;
     }
-    if(form.maxLifeSpan <= 0 ) {
-        error.maxLifeSpan = "The maxLifeSpan must be greater than 0";
+    if(form.maxHeight <= 0 ) {
+        error.maxHeight = "The max height must be greater than 0";
         isError = true;
-    }else if(form.maxLifeSpan > 20) {
-        error.maxLifeSpan = "The maxLifeSpan must be less than 20";
+    }
+    if(form.maxHeight < form.minHeight ) {
+        error.maxHeight = "The max height must be greater than the min height";
+        isError = true;
+    }
+    if(form.maxWeight <= 0 ) {
+        error.maxWeight = "The max weight must be greater than 0";
+        isError = true;
+    }
+    if(form.maxWeight < form.minWeight ) {
+        error.maxWeight = "The max weight must be greater than the min weight";
+        isError = true;
+        }
+    if(form.maxLifeSpan <= 0 ) {
+        error.maxLifeSpan = "The max Life Span must be greater than 0";
+        isError = true;
+    }
+    if(form.maxLifeSpan > 20) {
+        error.maxLifeSpan = "The max Life Span must be less than 20";
+        isError = true;
+    }
+    if(form.maxLifeSpan < form.minLifeSpan){
+        error.maxLifeSpan = "The max Life Span must be greater than the min Life Span";
         isError = true;
     }
     if(form.temperaments.length <= 0) {
