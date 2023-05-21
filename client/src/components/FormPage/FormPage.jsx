@@ -123,6 +123,7 @@ const FormPage = () => {
                 <br/>
                 <label className={style.title}>Maximum Height: </label>
                 <input className={style.input} type="number" value={form.maxHeight} name="maxHeight" onChange={changeHandler}/>
+                {errors.maxHeight && <p className={style.error}>{errors.maxHeight}</p>}
                 <br/>
                 <label className={style.title}>Minimum Weight: </label>
                 <input className={style.input} type="number" value={form.minWeight} name="minWeight" onChange={changeHandler}/>
@@ -130,6 +131,7 @@ const FormPage = () => {
                 <br/>
                 <label className={style.title}>Maximum Weight: </label>
                 <input className={style.input} type="number" value={form.maxWeight} name="maxWeight" onChange={changeHandler}/>
+                {errors.maxWeight && <p className={style.error}>{errors.maxWeight}</p>}
                 <br/>
                 <label className={style.title}>Minimum Life Span: </label>
                 <input className={style.input} type="number" value={form.minLifeSpan} name="minLifeSpan" onChange={changeHandler}/>
@@ -155,6 +157,7 @@ const FormPage = () => {
                         <div key={element}><span>{element}</span><button className={style.tempbutton} onClick={() => deleteHandler(element)}>x</button></div>
                     ))}
                 </div>
+                {errors.temperaments && <p className={style.error}>{errors.temperaments}</p>}
             </div>
             <button type="submit" className={style.button} disabled={!form.name || !form.image||!form.minHeight||!form.maxHeight||!form.minWeight||!form.maxWeight||!form.minLifeSpan||!form.maxLifeSpan}>Create Dog</button>
         </form>

@@ -1,6 +1,6 @@
 .container{
     position: absolute;
-    bottom: -25rem;
+    bottom: -27rem;
     left: 27rem;
     padding: 4rem 1rem 1rem 5rem;
     width: 34rem;
@@ -29,8 +29,8 @@
 }
 .button{
     position: absolute;
-    top: 55rem;
-    left: 45rem;
+    top: 59rem;
+    left: 42rem;
     font-style: italic;
 	text-transform: uppercase;
     color: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
@@ -54,11 +54,12 @@
     font-size: 16px;
     border-radius: 9999px;
     box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
-    color: #fff;
+    color:snow;
   }
   .mainTitle{
     position: relative;
     top: -2rem;
+    right: 2rem;
     text-transform: uppercase;
     font-size: 1.4em;
     font-style: italic;
