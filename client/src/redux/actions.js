@@ -1,4 +1,4 @@
-import { GET_ALL_DOGS, GET_ALL_TEMPERAMENTS, API_OR_DB_FILTER, GET_DOGS_BY_NAME, GET_DOG_BY_ID, ALPHABETIC_SORT, WEIGHT_SORT, TEMPERAMENT_FILTER, RESET_FILTER, RESET_DOG, RESET_DOGS } from './action-types';
+import { GET_ALL_DOGS, GET_ALL_TEMPERAMENTS, API_OR_DB_FILTER,RESET_FILTER,  GET_DOGS_BY_NAME, GET_DOG_BY_ID, ALPHABETIC_SORT, WEIGHT_SORT, TEMPERAMENT_FILTER, RESET_DOG, RESET_DOGS } from './action-types';
 import axios from 'axios';
 
 export const getAllDogs = () => {
@@ -74,7 +74,7 @@ export const weightSort = (dogs, value) => {
             sortDogs = dogs.sort((a, b) => 
             (a.minWeight > b.minWeight) ? 1 : (a.minWeight < b.minWeight) ? -1 : 0);
         }
-        return (dispatch) => {
+        return function (dispatch){
             dispatch({
                 type: WEIGHT_SORT,
                 payload: sortDogs
@@ -118,11 +118,7 @@ export const temperamentFilter = (dogs, value) => {
         throw new Error(error)
     }
 };
-export const resetFilter = () => {
-    return function (dispatch) {
-        dispatch({ type: RESET_FILTER })
-    }
-};
+
 
 export const resetDog = () => {
     return function (dispatch) {
@@ -132,5 +128,10 @@ export const resetDog = () => {
 export const resetDogs = () => {
     return function (dispatch) {
         dispatch({ type: RESET_DOGS })
+    }
+};
+export const resetFilter = () => {
+    return function (dispatch) {
+        dispatch({ type: RESET_FILTER })
     }
 };

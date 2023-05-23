@@ -1,4 +1,12 @@
-import { GET_ALL_DOGS, GET_ALL_TEMPERAMENTS, API_OR_DB_FILTER, GET_DOGS_BY_NAME, GET_DOG_BY_ID, ALPHABETIC_SORT, WEIGHT_SORT, TEMPERAMENT_FILTER } from './action-types';
+import { GET_ALL_DOGS,
+         GET_ALL_TEMPERAMENTS,
+         API_OR_DB_FILTER,
+         GET_DOGS_BY_NAME,
+         GET_DOG_BY_ID,
+         ALPHABETIC_SORT,
+         WEIGHT_SORT,
+        TEMPERAMENT_FILTER,
+    RESET_FILTER } from './action-types';
 
 const initialState = {
     dogs: [],
@@ -55,6 +63,8 @@ const reducer = (state = initialState, action) => {
                 dogs: action.payload,
                 filter: true
             }
+        case RESET_FILTER:
+            return { ...state, filter: false }
         default:
             return {
                 ...state

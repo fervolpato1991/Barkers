@@ -1,4 +1,4 @@
-import React from "react";
+import React  from "react";
 import { weightSort } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import style from "./WeightSort.module.css"
@@ -9,6 +9,8 @@ const WeightSort = ({ dogs }) => {
     const sortHandlerLH = (event) => {
         const value = event.target.value;
         dispatch(weightSort(dogs, value));
+        console.log(dogs)
+        console.log(value)
     }
 
     return (

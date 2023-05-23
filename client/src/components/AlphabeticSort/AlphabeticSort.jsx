@@ -9,15 +9,17 @@ const AlphabeticSort = ({dogs}) => {
     const alphabeticSortHandler = (event) => {
         const value = event.target.value;
         dispatch(alphabeticSort(dogs, value));
+        console.log(dogs)
+        console.log(value)
     }
 
     return (
         <div className={style.container}>
             <h2 className={style.title}>Sort by dog name:</h2>
             <select onChange={alphabeticSortHandler}className={style.select}>
-                <option className={style.option}>Select order:</option>
-                <option value="ascendant" className={style.option}>ascendant</option>
-                <option value="descendant" className={style.option}>descendant</option>
+                <option disabled className={style.option}>Select order:</option>
+                <option value="ascendant" name="ascendant" className={style.option}>ascendant</option>
+                <option value="descendant" name="descendant" className={style.option}>descendant</option>
             </select>
         </div>
     )

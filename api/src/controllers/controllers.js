@@ -1,3 +1,8 @@
+// Estas líneas importan las dependencias necesarias, 
+// incluido Axios para hacer solicitudes HTTP y 
+// los modelos Dog y Temperament definidos en otro archivo (db.js).
+//  Además, obtiene la clave de la API desde las variables de entorno 
+//  y construye la URL para la API externa de perros:
 const axios = require('axios');
 const { Dog, Temperament } = require('../db.js');
 const { API_KEY } = process.env;
@@ -6,7 +11,9 @@ const url = `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`;
 
 const getDogsApi = async() => {
     try {
+        // Llama a la API externa de perros y obtiene la respuesta:
         const api = await axios.get(url);
+        // Se realiza el mapeo y formateo de los datos de la API externa:
         const allDogs = api.data?.map(dog => {
             return {
                 id: dog.id,
@@ -30,6 +37,9 @@ const getDogsApi = async() => {
 
 const getAllDogs = async() => {
     try {
+        // utiliza getDogsApi para obtener los perros desde la API externa
+        // y luego obtiene todos los perros de la base de datos, 
+        //incluyendo los temperamentos asociados.:
         const allDogsApi = await getDogsApi();
         const allDogsDB = await Dog.findAll({
             include: {
@@ -40,6 +50,8 @@ const getAllDogs = async() => {
                 }
             }
         });
+        // Luego, se realiza un mapeo y formateo de los datos tanto de la API
+        // como de la base de datos:
         const allDogsDBTemps = allDogsDB.map(dog =>{
             return {
                 id: dog.id,
@@ -55,6 +67,7 @@ const getAllDogs = async() => {
                 from: dog.from
             };
         });
+        // Finalmente, se devuelve una combinación de los perros de la API y los de la base de datos:
         return [...allDogsApi, ...allDogsDBTemps];
     } catch (error) {
         throw new Error(error);
@@ -62,8 +75,12 @@ const getAllDogs = async() => {
 }
 const getAllDogsByName = async(name) => {
     try {
+        // utiliza getDogsApi para obtener los perros desde la API externa:
         const allDogs = await getAllDogs();
+        // Luego, se filtra la lista de los perros por nombre,
+        // según el parámetro name proporcionado:
         const filterName = allDogs.filter(dog => dog.name.toLowerCase().includes(name.toLowerCase()))
+        // y luego se devuelve la lista de perros encontrados:
         if(filterName.length > 0){
             return filterName;
         } throw new Error('Dog not found')

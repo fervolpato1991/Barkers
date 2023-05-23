@@ -10,9 +10,7 @@ class Pagination extends Component {
       prevHandler,
       nextHandler,
       totalDogs,
-      currentPage,
       dogsPerPage,
-      pageNumberLimit,
       minPageLimit,
       maxPageLimit,
     } = this.props;

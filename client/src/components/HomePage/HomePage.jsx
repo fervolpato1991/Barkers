@@ -7,7 +7,7 @@ import {
   temperamentFilter,
   resetDog,
   resetDogs,
-  resetFilter,
+  resetFilter
 } from '../../redux/actions';
 import APIorDBFilter from '../APIorDBFilter/APIorDBFilter';
 import TemperamentFilter from '../TemperamentFilter/TemperamentFilter';
@@ -47,6 +47,7 @@ const HomePage = () => {
           setCurrentPage(0);
           setmaxPageNumberLimit(5);
           setminPageNumberLimit(0);
+
           setItems([...dogs].splice(0, dogsPerPage));
           dispatch(resetFilter());
       }
