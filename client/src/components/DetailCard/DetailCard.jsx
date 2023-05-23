@@ -54,7 +54,6 @@ const DetailCard = () => {
             </div> : null}
             <div>
                 <h2 className={style.title}>{dog.name}</h2>
-                <p className={style.description}>From: {dog.from}</p>
                 <h3 className={style.title}>Weight:</h3>
                 <p className={style.description}>{dog.minWeight} - {dog.maxWeight} kgs</p>
                 <h3 className={style.title}>Height:</h3>

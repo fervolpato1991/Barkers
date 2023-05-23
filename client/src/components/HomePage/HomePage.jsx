@@ -136,7 +136,6 @@ const HomePage = () => {
           </li>
           <li>
             <APIorDBFilter
-              formAPIDB={formAPIDB}
               APIDBHandler={APIDBHandler} 
             />
           </li>

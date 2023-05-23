@@ -6,10 +6,11 @@ const APIorDBFilter = ({formAPIDB, APIDBHandler}) => {
         <div className={style.container}>
             <h1 className={style.title}>Filter by API or DB</h1>
             <select onChange={APIDBHandler} className={style.select}>
-                <option>Select Filter:</option>
-                <option name="API">API</option>
-                <option name="DB">DB</option>
+                <option disabled>Select Filter:</option>
+                <option name="API" value="api">API</option>
+                <option name="DB" value="db">DB</option>
             </select>
+
         </div>
     )
 }

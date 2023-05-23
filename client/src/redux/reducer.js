@@ -6,6 +6,8 @@ import { GET_ALL_DOGS,
          ALPHABETIC_SORT,
          WEIGHT_SORT,
         TEMPERAMENT_FILTER,
+        RESET_DOG,
+        RESET_DOGS,
     RESET_FILTER } from './action-types';
 
 const initialState = {
@@ -63,6 +65,10 @@ const reducer = (state = initialState, action) => {
                 dogs: action.payload,
                 filter: true
             }
+        case RESET_DOG:
+                return { ...state, dog: [] }
+        case RESET_DOGS:
+                return { ...state, dogs: [] }
         case RESET_FILTER:
             return { ...state, filter: false }
         default:

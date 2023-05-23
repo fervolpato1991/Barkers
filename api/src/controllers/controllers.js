@@ -34,7 +34,6 @@ const getDogsApi = async() => {
                 maxWeight: parseInt(dog.weight.metric.split("-")[1]),
                 minLifeSpan: parseInt(dog.life_span.split("-")[0]),
                 maxLifeSpan: parseInt(dog.life_span.split("-")[1]),
-                from: 'API' // indica que los datos provienen de la API externa.
             };
         });
         // Todos los objetos de raza de perro se agregan a un arreglo llamado allDogs,
@@ -74,9 +73,12 @@ const getAllDogs = async() => {
         });
         // Luego, se realiza un mapeo y formateo de los datos tanto de la API
         // como de la base de datos:
+        console.log(allDogsDB);
         const allDogsDBTemps = allDogsDB.map(dog =>{
             // Para cada perro en allDogsDB, se crea un objeto con las propiedades deseadas.
+    
             return {
+
                 id: dog.id,
                 name: dog.name,
                 temperaments: dog.temperaments.map(temp => temp.name).join(', '),
@@ -87,7 +89,7 @@ const getAllDogs = async() => {
                 maxWeight: dog.maxWeight,
                 minLifeSpan: dog.minLifeSpan,
                 maxLifeSpan: dog.maxLifeSpan,
-                from: dog.from
+                db: dog.db
             };
             // la idea es transformar los perros obtenidos de la base de datos local
             // en un formato consistente con los perros obtenidos de la API externa, 

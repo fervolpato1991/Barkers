@@ -3,12 +3,18 @@ import axios from 'axios';
 
 export const getAllDogs = () => {
     return async (dispatch) => {
+        // se realiza la solicitud GET:
         const dogs = await axios.get('http://localhost:3001/dogs');
+        // Una vez que se recibe la respuesta,
+        // se despacha una acción de tipo GET_ALL_DOGS con los datos de perros obtenidos
+        // como carga útil (payload):
         dispatch({
             type: GET_ALL_DOGS,
             payload: dogs.data
         })
     }
+    // esta acción se utiliza para obtener todos los perros de una API
+    // y almacenarlos en el estado de Redux para su posterior uso en la aplicación.
 };
 export const getAllTemperaments = () => async (dispatch) => {
     try {
@@ -86,10 +92,12 @@ export const weightSort = (dogs, value) => {
 };
 export const apiOrDbFilter = (dogs, value) => {
     try {
-        let dogFilter = [];
-        dogs.forEach(dog => {
-            if(dog.from === value) dogFilter.push(dog);
-        });
+
+        const dogFilter = value === 'db' ?
+        [...dogs].filter(dog => dog.db) :
+        value === 'api' ?
+        [...dogs].filter(dog => !dog.db):
+        dogs;
         return (dispatch) => {
             dispatch({
                 type: API_OR_DB_FILTER,

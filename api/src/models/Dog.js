@@ -42,6 +42,10 @@ module.exports = (sequelize) => {
     maxLifeSpan:{
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    db: {
+      type: DataTypes.BOOLEAN,
+      defaultValue : true
     }
   },{ timestamps: false });
 };
