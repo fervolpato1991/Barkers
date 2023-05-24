@@ -157,7 +157,7 @@ const FormPage = () => {
                         <div key={element}><span>{element}</span><button className={style.tempbutton} onClick={() => deleteHandler(element)}>x</button></div>
                     ))}
                 </div>
-                {errors.temperaments && <p className={style.error}>{errors.temperaments}</p>}
+                {errors.temperaments && <p className={style.temperror}>{errors.temperaments}</p>}
             </div>
             <button type="submit" className={style.button} disabled={!form.name || !form.image||!form.minHeight||!form.maxHeight||!form.minWeight||!form.maxWeight||!form.minLifeSpan||!form.maxLifeSpan}>Create Dog</button>
         </form>

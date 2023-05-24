@@ -1,11 +1,14 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
+// Se importan los módulos fs y path.
+// Estos módulos son utilizados para trabajar con el sistema de archivos y manipular rutas de archivos.
 const fs = require('fs');
 const path = require('path');
 const {
   DB_USER, DB_PASSWORD, DB_HOST,
 } = process.env;
 
+//se crea una instancia de Sequelize para establecer la conexión a la base de datos PostgreSQL:
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/dogs`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed

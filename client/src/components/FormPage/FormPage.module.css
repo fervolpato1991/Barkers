@@ -190,3 +190,13 @@
     width: 2rem;
     height: 2rem;
 }
+.temperror{
+    position: relative;
+    top: -3%;
+    left: 5%;
+    font-style: italic;
+    font-weight: bolder;
+    font-size: small;
+    padding: -1rem -1rem -1rem -1rem;
+    margin: -1rem -1rem -1rem -1rem;
+}

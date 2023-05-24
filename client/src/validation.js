@@ -32,16 +32,12 @@ const validation = (form) => {
 
     if (form.maxHeight <= 0) {
         errors.maxHeight = "The max height must be greater than 0 cm";
-    } else if (form.maxHeight < form.minHeight) {
-        errors.maxHeight = "The max height must be greater than the min height";
     } else if (form.maxHeight > 100) {
         errors.maxHeight = "The max height must be less than 100 cm";
     }
 
     if (form.maxWeight <= 0) {
         errors.maxWeight = "The max weight must be greater than 0 kg";
-    } else if (form.maxWeight < form.minWeight) {
-        errors.maxWeight = "The max weight must be greater than the min weight";
     } else if (form.maxWeight > 100) {
         errors.maxWeight = "The max weight must be less than 100 kg";
     }
