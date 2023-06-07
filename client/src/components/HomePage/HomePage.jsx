@@ -54,8 +54,6 @@ const HomePage = () => {
   // se asigna a items una porción de la lista de perros que va desde el índice 0 hasta dogsPerPage:
   if (dogs.length > 0 && items.length === 0) setItems([...dogs].splice(0, dogsPerPage));
 
-  // Uso el hook useEffect para realizar ciertas acciones cuando el componente HomePage
-  // se renderiza en pantalla
   // Cada dispatch corresponde a una acción definida en el código y
   // se llama utilizando el método dispatch proporcionado por useDispatch()
   useEffect(() => {
@@ -69,29 +67,22 @@ const HomePage = () => {
       dispatch(resetDogs());
     // resetFilter(): Reinicia el estado del filtro, estableciéndolo en false.
       dispatch(resetFilter());
-    // El parámetro [dispatch] especifica las dependencias del efecto, 
-    // lo que significa que este efecto se ejecutará solo cuando dispatch cambie.
+    // este efecto se ejecutará solo cuando dispatch cambie.
     // En este caso, el efecto se ejecutará una vez al inicio del componente.
   }, [dispatch]);
-
 
   // Usamos el hook realizar una acción cuando se detecta
   // un cambio en las dependencias dispatch, filter o dogs:
   useEffect(() => {
-    // El efecto se ejecuta cuando el valor de filter es true
       if (filter === true) {
         // se actualizan los valores de estado currentPage,
-        // maxPageNumberLimit y minPageNumberLimit para restablecer la paginación.
           setCurrentPage(0);
           setmaxPageNumberLimit(5);
           setminPageNumberLimit(0);
         // se actualiza el estado items utilizando la función setItems
-        // crear una copia del array dogs y luego se utiliza el método
-        // splice para obtener un subconjunto de elementos que corresponda
-        // a la página actual. Este subconjunto de elementos se asigna al estado items:
+        // crear una copia del array dogs y luego se utiliza el método splice:
           setItems([...dogs].splice(0, dogsPerPage));
-        // se despacha la acción resetFilter para restablecer el estado filter a false,
-        // lo que indica que se ha aplicado el filtro y se ha completado el proceso de paginación.
+        // se despacha la acción resetFilter para restablecer el estado filter a false
           dispatch(resetFilter());
       }
       // la idea es actualizar la paginación y los elementos mostrados
@@ -99,17 +90,14 @@ const HomePage = () => {
   }, [dispatch, filter, dogs]);
 
   const temperamentsHandler = (event) => {
-    // obtenemos el valor seleccionado del elemento mediante event.target.value:
       const value = event.target.value;
     // utilizamos el método setForm para actualizar el estado form
       setForm({
     // creamos una copia del objeto form existente, y luego se actualiza
-    // la propiedad temperaments agregando el nuevo valor seleccionado al final
-    // del array utilizando el operador de propagación nuevamente:
+    // la propiedad temperaments agregando el nuevo valor seleccionado al final del array
           ...form, temperaments: [...form.temperaments, value],
       });
-      // se despacha la acción  el filtro de temperamento en los perros y
-      // actualizar el estado correspondiente
+      // se actualiza el estado correspondiente
       dispatch(temperamentFilter(dogs, value));
 
       // Su fin es actualiza el estado form con el nuevo valor seleccionado y
@@ -137,9 +125,7 @@ const HomePage = () => {
     // se calcula el índice de inicio para los perros de
     // la página actual multiplicando firstPage por dogsPerPage
       const firstIndex = firstPage * dogsPerPage;
-    // se utiliza el método splice junto con el operador de propagación (...)
-    // para obtener un subconjunto de perros a partir del índice calculado,
-    // con una longitud de dogsPerPage:
+    // se utiliza el método splice junto con el operador de propagación
       setItems([...dogs].splice(firstIndex, dogsPerPage));
       // actualizan los estados relacionados con la paginación:
       setCurrentPage(firstPage);
@@ -173,7 +159,6 @@ const HomePage = () => {
           setminPageNumberLimit(minPageNumberLimit - pageNumberLimit);
       }
   }
-
   // nextHandler se utiliza para manejar el evento
   // de hacer clic en el botón de página siguiente en la paginación:
   const nextHandler = () => {

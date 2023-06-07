@@ -61,10 +61,8 @@ export const getDogById = (id) => async(dispatch) => {
 };
 export const getDogsByName = (name) => async(dispatch) => {
     try {
-        // se realiza una solicitud GET utilizando
-        // axios a la URL http://localhost:3001/dogs?name=${name},
+        // se realiza una solicitud GET 
         // donde ${name} es el nombre del perro que se desea buscar.
-        // La consulta ?name=${name} se utiliza para filtrar los perros por su nombre en la API:
         const dogName = await axios(`http://localhost:3001/dogs?name=${name}`);
         // Una vez que se recibe la respuesta,
         // se extraen los datos de los perros encontrados desde dogName.data.
@@ -75,9 +73,7 @@ export const getDogsByName = (name) => async(dispatch) => {
             payload: dogName.data
         });
     } catch (error) {
-        // Si se produce un error durante la solicitud,
-        // se lanza una excepción con el error correspondiente.
-        throw new Error(error);
+        alert('Dog breed does not exist!')
     }
     // esta acción se utiliza para buscar perros por su nombre en la API
     // y almacenar los resultados en el estado de Redux para su posterior uso en la aplicación.
@@ -114,13 +110,10 @@ export const alphabeticSort = (dogs, value) => {
         throw new Error(error);
     }
     // esta acción se utiliza para ordenar los perros alfabéticamente
-    // en función del valor especificado y almacenar los resultados
-    // en el estado de Redux para su posterior uso en la aplicación.
 };
 export const weightSort = (dogs, value) => {
     // Recibe dos parámetros: dogs, que es el arreglo de perros a ordenar,
     // y value, que especifica el tipo de ordenamiento
-    // ("high-low" para de alto a bajo y "low-high" para de bajo a alto).
     try {
         // se declara una variable sortDogs para almacenar los perros ordenados:
         let sortDogs = [];
@@ -207,8 +200,6 @@ export const temperamentFilter = (dogs, value) => {
             const temps = [];
             // Si el perro tiene temperamentos (es decir, la propiedad temperaments no es nula),
             // se agregan los temperamentos al arreglo temps
-            // los temperamentos se separan por comas y 
-            // se agregan al arreglo utilizando el operador spread:
             if(dog.temperaments) temps.push(...dog.temperaments.split(", "));
             // se verifica si el arreglo temps incluye el temperamento específico
             // que se está filtrando (value). Si es así, el perro se agrega al arreglo dogFilter:
@@ -225,13 +216,7 @@ export const temperamentFilter = (dogs, value) => {
     } catch (error) {
         throw new Error(error)
     }
-    // este código se utiliza para filtrar los perros
-    // en función de un temperamento específico.
-    // Solo se seleccionarán los perros que tengan el temperamento
-    // buscado en su lista de temperamentos.
 };
-
-
 export const resetDog = () => {
     // Retorna una función (dispatch) que envía una acción al store con el tipo RESET_DOG.
     return function (dispatch) {
