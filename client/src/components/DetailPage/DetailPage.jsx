@@ -1,22 +1,25 @@
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { connect } from 'react-redux';
 import { getDogById } from '../../redux/actions';
 import DetailCard from '../DetailCard/DetailCard';
 import style from './DetailPage.module.css';
 
-const DetailPage = () => {
-    const { id } = useParams();
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getDogById(id));
-    }, [dispatch, id]);
+class DetailPage extends React.Component {
+    // eslint-disable-next-line no-useless-constructor
+    constructor(){
+        super()
+    }
+    componentDidMount(){
+        const {id} = this.props.match.params;
+        this.props.dispatch(getDogById(id));
+    }
+    render(){
     return (
         <div className={style.container}>
             <DetailCard/>
         </div>
     )
 }
+}
 
-export default DetailPage;
+export default connect()(DetailPage);

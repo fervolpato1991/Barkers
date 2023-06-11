@@ -19,60 +19,32 @@ import WeightSort from '../WeightSort/WeightSort';
 import style from './HomePage.module.css';
 
 const HomePage = () => {
-  // despachamos acciones de redux con el hook useDispatch:
   const dispatch = useDispatch();
-  // dogs: obtenemos el estado dogs del store de Redux con el hook useSelector:
   const dogs = useSelector(state => state.dogs);
-  // temperaments: obtenemos el estado temperaments del store de redux con el hook useSelector:
   const allTemperaments = useSelector(state => state.temperaments);
-  // filter: obtenemos el estado filter del store de redux con el hook useSelector:
   const filter = useSelector(state => state.filter);
-  // dogsPerPage: define la cantidad de perros
-  // que se mostrarán por página en la paginación:
   const dogsPerPage = 8;
-  // pageNumberLimit: define el límite máximo
-  // de números de página que se mostrarán en la paginación:
   const pageNumberLimit = 5;
-  // items: estado que almacena la lista de perros que se mostrarán en la página actual:
   const [items, setItems] = useState([]);
-  // currentPage: estado que almacena el número de la página actual:
   const [currentPage, setCurrentPage] = useState(0);
-  // maxPageNumberLimit: estado que almacena el límite máximo de números
-  // de página que se mostrarán en la paginación:
   const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
-  // minPageNumberLimit: estado que almacena el límite mínimo de números
-  // de página que se mostrarán en la paginación:
   const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
-  // form: Es un estado que almacena los valores seleccionados en el filtro de temperamentos:
   const [form, setForm] = useState({ temperaments: [] });
-  // formAPIDB: Es un estado que almacena los valores seleccionados en el filtro de API/DB:
   const [formAPIDB, setformAPIDB] = useState({ filterApiDB: [] });
-  // se utilizan en el componente para gestionar el estado de la paginación y los filtros de búsqueda
 
   // verificamos si la lista de perros (dogs) tiene elementos y
   // si la lista de items (items) está vacía. Si se cumple esta condición,
   // se asigna a items una porción de la lista de perros que va desde el índice 0 hasta dogsPerPage:
   if (dogs.length > 0 && items.length === 0) setItems([...dogs].splice(0, dogsPerPage));
 
-  // Cada dispatch corresponde a una acción definida en el código y
-  // se llama utilizando el método dispatch proporcionado por useDispatch()
   useEffect(() => {
-    // getAllDogs(): Obtiene todos los perros:
       dispatch(getAllDogs());
-    // getAllTemperaments(): Obtiene todos los temperamentos disponibles:
       dispatch(getAllTemperaments());
-    // resetDog(): Reinicia el perro seleccionado actualmente, estableciendo su valor en vacío:
       dispatch(resetDog());
-    // resetDogs(): Reinicia la lista de perros, estableciéndola en vacía.
       dispatch(resetDogs());
-    // resetFilter(): Reinicia el estado del filtro, estableciéndolo en false.
       dispatch(resetFilter());
-    // este efecto se ejecutará solo cuando dispatch cambie.
-    // En este caso, el efecto se ejecutará una vez al inicio del componente.
   }, [dispatch]);
 
-  // Usamos el hook realizar una acción cuando se detecta
-  // un cambio en las dependencias dispatch, filter o dogs:
   useEffect(() => {
       if (filter === true) {
         // se actualizan los valores de estado currentPage,
@@ -80,7 +52,6 @@ const HomePage = () => {
           setmaxPageNumberLimit(5);
           setminPageNumberLimit(0);
         // se actualiza el estado items utilizando la función setItems
-        // crear una copia del array dogs y luego se utiliza el método splice:
           setItems([...dogs].splice(0, dogsPerPage));
         // se despacha la acción resetFilter para restablecer el estado filter a false
           dispatch(resetFilter());
@@ -93,13 +64,9 @@ const HomePage = () => {
       const value = event.target.value;
     // utilizamos el método setForm para actualizar el estado form
       setForm({
-    // creamos una copia del objeto form existente, y luego se actualiza
-    // la propiedad temperaments agregando el nuevo valor seleccionado al final del array
           ...form, temperaments: [...form.temperaments, value],
       });
-      // se actualiza el estado correspondiente
       dispatch(temperamentFilter(dogs, value));
-
       // Su fin es actualiza el estado form con el nuevo valor seleccionado y
       // despacha una acción para aplicar el filtro de temperamento en los perros.
   }
@@ -113,65 +80,44 @@ const HomePage = () => {
       // seleccionado al final del array utilizando el operador de propagación nuevamente.
           ...formAPIDB, filterApiDB: [...formAPIDB.filterApiDB, value],
       });
-      // se despacha la acción apiOrDbFilter mediante dispatch
-      // se encarga de aplicar el filtro de API o DB en los perros y
-      // actualizar el estado correspondiente en el almacenamiento (Redux).
       dispatch(apiOrDbFilter(dogs, value));
   }
 
-  // firstHandler se utiliza para manejar el evento de hacer clic
-  // en el botón de la primera página en la paginación: 
   const firstHandler = (firstPage) => {
     // se calcula el índice de inicio para los perros de
     // la página actual multiplicando firstPage por dogsPerPage
       const firstIndex = firstPage * dogsPerPage;
-    // se utiliza el método splice junto con el operador de propagación
       setItems([...dogs].splice(firstIndex, dogsPerPage));
       // actualizan los estados relacionados con la paginación:
       setCurrentPage(firstPage);
       setmaxPageNumberLimit(5);
       setminPageNumberLimit(0);
   }
-// prevHandler se utiliza para manejar el 
-// evento de hacer clic en el botón de página anterior en la paginación:
   const prevHandler = () => {
       const prevPage = currentPage - 1;
       // se calcula el índice de inicio para los perros
       // de la página anterior multiplicando prevPage por dogsPerPage:
       const firstIndex = prevPage * dogsPerPage;
-      // Si prevPage es menor que 0, significa que ya se encuentra en la primera página
       if (prevPage < 0) return;
       // Si prevPage es mayor o igual a 0, se utiliza el método splice junto
       // con el operador de propagación (...) para obtener un subconjunto de
       // perros a partir del índice calculado:
       setItems([...dogs].splice(firstIndex, dogsPerPage));
-      // se actualizan los estados relacionados con la paginación:
       setCurrentPage(prevPage);
       // Si el número de página actual (currentPage) es un múltiplo
       // del límite de números de página (pageNumberLimit),
       // significa que el límite superior de los números de página debe actualizarse:
       if ((currentPage) % pageNumberLimit === 0) {
-        // setmaxPageNumberLimit se establece en maxPageNumberLimit - pageNumberLimit
-        // para reducir el límite superior en el valor de pageNumberLimit:
           setmaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
-        // se actualiza el límite inferior de los números de página restando
-        // pageNumberLimit a minPageNumberLimit utilizando setminPageNumberLimit.
           setminPageNumberLimit(minPageNumberLimit - pageNumberLimit);
       }
   }
-  // nextHandler se utiliza para manejar el evento
-  // de hacer clic en el botón de página siguiente en la paginación:
   const nextHandler = () => {
-    // se obtiene la cantidad total de perros:
       const totalDogs = dogs.length;
-    // calcula el número de página siguiente sumando 1 al valor de currentPage:
       const nextPage = currentPage + 1;
-    // se calcula el índice de inicio para los perros de la página siguiente:
       const firstIndex = nextPage * dogsPerPage;
     // si no hay más perros para mostrar y se retorna:
       if (firstIndex > totalDogs) return;
-      // se utiliza el método splice junto con el operador de propagación (...)
-      // para obtener un subconjunto de perros a partir del índice calculado:
       setItems([...dogs].splice(firstIndex, dogsPerPage));
       //setCurrentPage se establece en nextPage para reflejar la página actual:
       setCurrentPage(nextPage);

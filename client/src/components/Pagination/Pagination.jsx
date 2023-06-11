@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import style from './Pagination.module.css';
 
-class Pagination extends Component {
+class Pagination extends React.Component {
+  // eslint-disable-next-line no-useless-constructor
+  constructor(){
+    super()
+  }
   render() {
     const {
       pagination,

@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import style from './LandingPage.module.css';
 
-class LandingPage extends Component {
+class LandingPage extends React.Component {
+  // eslint-disable-next-line no-useless-constructor
+  constructor(){
+    super()
+  }
   render() {
     return (
       <div className={style.landingpage}>
