@@ -1,22 +1,23 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 import style from "./NavBar.module.css";
 
 const NavBar = () => {
     return (
-    <nav>
+      <nav>
         <div className={style.container}>
-            <form action="/home" >
-                <input type="submit" value="Home" className={style.button}/>
-            </form>
-            <form action="/formPage" >
-                <input type="submit" value="Make a new dog!" className={style.button}/>
-            </form>
-            <form action="/" >
-                <input type="submit" value="Log out" className={style.button}/>
-            </form>
+          <Link to="/home" className={style.button}>
+            Home
+          </Link>
+          <Link to="/formPage" className={style.button}>
+            Make a new dog!
+          </Link>
+          <Link to="/" className={style.button}>
+            Log out
+          </Link>
         </div>
-    </nav>
-    )
-};
-
-export default NavBar
+      </nav>
+    );
+  };
+  
+  export default NavBar;

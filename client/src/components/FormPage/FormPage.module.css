@@ -1,38 +1,25 @@
-.container{
-    position: absolute;
-    bottom: -27rem;
-    left: 27rem;
-    padding: 4rem 1rem 1rem 5rem;
-    width: 34rem;
-    height: 47rem;
+.container {
+    display: inline-block;
+    margin-top: 15rem;
+    margin-left: 5rem;
+    padding: 4rem;
+    width: 60%;
+    max-width: 40rem;
     background-color: rgba(199, 199, 199, 0.55);
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    box-sizing:border-box;
-    border-radius:5rem;
-    -webkit-box-shadow:
-        0 2px 4px 0 rgba(72, 72, 72, 0.83),
-        0 10px 15px 0 rgba(126, 126, 126, 0.12),
-        0 -2px 6px 1px rgba(199, 199, 199, 0.55) inset, 
-        0 2px 4px 2px rgba(255, 255, 255, 0.83) inset;
-    -moz-box-shadow: 
-        0 2px 4px 0 rgba(72, 72, 72, 0.83),
-        0 10px 15px 0 rgba(126, 126, 126, 0.12),
-        0 -2px 6px 1px rgba(199, 199, 199, 0.55) inset, 
-        0 2px 4px 2px rgba(255, 255, 255, 0.83) inset;
-    box-shadow: 
-        0 2px 4px 0 rgba(72, 72, 72, 0.83),
-        0 10px 15px 0 rgba(126, 126, 126, 0.12),
-        0 -2px 6px 1px rgba(199, 199, 199, 0.55) inset, 
-        0 2px 4px 2px rgba(255, 255, 255, 0.83) inset;
-        
-}
-.button{
-    position: absolute;
-    top: 59rem;
-    left: 42rem;
+    box-sizing: border-box;
+    border-radius: 5rem;
+    box-shadow:
+      0 2px 4px 0 rgba(72, 72, 72, 0.83),
+      0 10px 15px 0 rgba(126, 126, 126, 0.12),
+      0 -2px 6px 1px rgba(199, 199, 199, 0.55) inset,
+      0 2px 4px 2px rgba(255, 255, 255, 0.83) inset;
+  }
+  
+  .button {
+    position: relative;
+    right: 13%;
     font-style: italic;
-	text-transform: uppercase;
+    text-transform: uppercase;
     color: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
     text-shadow: 2px 2px 10px rgb(66, 66, 73);
     font-weight: 700;
@@ -43,8 +30,9 @@
     font-size: 0.9rem;
     border-radius: 9999px;
     box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
-}
-.input {
+  }
+  
+  .input {
     background: none;
     border: none;
     outline: none;
@@ -54,57 +42,66 @@
     font-size: 16px;
     border-radius: 9999px;
     box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
-    color:snow;
+    color: snow;
   }
-  .mainTitle{
-    position: relative;
-    top: -2rem;
-    right: 2rem;
-    text-transform: uppercase;
+  
+  .mainTitle {
     font-size: 1.4em;
     font-style: italic;
     font-weight: 900;
-    transition:.6s;
-	color: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
+    transition: 0.6s;
+    color: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
     text-shadow: 2px 2px 10px rgb(66, 66, 73);
+    margin-top: -2rem;
   }
-  .title{
+  
+  .title {
     font-size: 1.2em;
     font-style: italic;
-    transition:.6s;
-	color: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
+    transition: 0.6s;
+    color: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
     text-shadow: 2px 2px 10px rgb(66, 66, 73);
-}
-.temptitle{
-    position: relative;
-    top: 0.2rem;
-    left: -11rem;
+  }
+  
+  .temptitle {
+    margin-right: 65%;
     font-size: 1em;
     font-style: italic;
-    transition:.6s;
-	color: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
+    transition: 0.6s;
+    color: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
     text-shadow: 2px 2px 10px rgb(66, 66, 73);
-}
-.error{
-    position: relative;
-    top: 3%;
+  }
+  
+  .error {
     font-style: italic;
     font-weight: bolder;
     font-size: small;
     padding: -1rem -1rem -1rem -1rem;
-    margin: -1rem -1rem -1rem -1rem;
-}
-.tempselect{
-    position: relative;
-    top: 1rem;
-    left: -3rem;
-}
-.temps{
-    position: relative;
-    top: 1rem;
-    left: -3rem;
-}
-.tempcontainer{
+    margin: 0.5rem -1rem -1rem -1rem;
+  }
+  
+  .tempselect {
+    font-size: 1.2em;
+    font-style: italic;
+    transition: 0.6s;
+    color: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
+    text-shadow: 2px 2px 10px rgb(66, 66, 73);
+  }
+  
+  .temps {
+    background: none;
+    border: none;
+    outline: none;
+    max-width: 190px;
+    margin: 1.4rem 0.4rem 0.2rem 0.4rem;
+    padding: 0.2rem 0.2rem 0.2rem 0.5rem;
+    font-size: 16px;
+    border-radius: 9999px;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+    color: black;
+  }
+  
+  .tempcontainer {
     display: grid;
     position: relative;
     top: 0.2rem;
@@ -115,8 +112,9 @@
     margin-left: 8rem;
     margin-right: 9rem;
     grid-template-columns: repeat(2, 1fr);
-}
-.tempbutton{
+  }
+  
+  .tempbutton {
     color: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
     text-shadow: 2px 2px 10px rgb(66, 66, 73);
     font-weight: 700;
@@ -125,34 +123,32 @@
     outline: none;
     border-radius: 9999px;
     box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
-}
-.containermodal{
-    position: absolute;
-    top: 64rem;
+  }
+  
+  .containermodal {
+    position: relative;
+    top: 60rem;
     left: 20rem;
-    padding: 4rem 1rem 1rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 2rem;
+    width: 60%;
+    max-width: 40rem;
     background-color: rgba(199, 199, 199, 0.55);
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    box-sizing:border-box;
-    border-radius:5rem;
-    -webkit-box-shadow:
-        0 2px 4px 0 rgba(72, 72, 72, 0.83),
-        0 10px 15px 0 rgba(126, 126, 126, 0.12),
-        0 -2px 6px 1px rgba(199, 199, 199, 0.55) inset, 
-        0 2px 4px 2px rgba(255, 255, 255, 0.83) inset;
-    -moz-box-shadow: 
-        0 2px 4px 0 rgba(72, 72, 72, 0.83),
-        0 10px 15px 0 rgba(126, 126, 126, 0.12),
-        0 -2px 6px 1px rgba(199, 199, 199, 0.55) inset, 
-        0 2px 4px 2px rgba(255, 255, 255, 0.83) inset;
-    box-shadow: 
-        0 2px 4px 0 rgba(72, 72, 72, 0.83),
-        0 10px 15px 0 rgba(126, 126, 126, 0.12),
-        0 -2px 6px 1px rgba(199, 199, 199, 0.55) inset, 
-        0 2px 4px 2px rgba(255, 255, 255, 0.83) inset;
-        
-}
+    box-sizing: border-box;
+    border-radius: 5rem;
+    box-shadow:
+      0 2px 4px 0 rgba(72, 72, 72, 0.83),
+      0 10px 15px 0 rgba(126, 126, 126, 0.12),
+      0 -2px 6px 1px rgba(199, 199, 199, 0.55) inset,
+      0 2px 4px 2px rgba(255, 255, 255, 0.83) inset;
+  }
+  .containermodal {
+    position: absolute;
+  }
 .modaltitle{
     position: relative;
     top: -1rem;
@@ -191,12 +187,7 @@
     height: 2rem;
 }
 .temperror{
-    position: relative;
-    top: -3%;
-    left: 5%;
     font-style: italic;
     font-weight: bolder;
     font-size: small;
-    padding: -1rem -1rem -1rem -1rem;
-    margin: -1rem -1rem -1rem -1rem;
-}
+    padding: -1rem -1rem -1rem -1rem;}

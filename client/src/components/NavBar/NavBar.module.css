@@ -1,13 +1,9 @@
-
-/*La NavBar quizas deberia tener su barra separada del resto de componentes.
-Por una cuestion de espacio, entre otras cosas*/
-
 .container{
     display: flex;
     flex-direction: row;
     position: absolute;
-    bottom: 22.4rem;
-    left: 32rem;
+    bottom: 25rem;
+    left: 30rem;
     padding: 1rem 2rem;
     background-color: rgba(199, 199, 199, 0.55);
     -webkit-box-sizing:border-box;
@@ -35,7 +31,7 @@ Por una cuestion de espacio, entre otras cosas*/
     position: relative;
     font-style: italic;
 	text-transform: uppercase;
-    color: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
+    color: black;
     text-shadow: 2px 2px 10px rgb(66, 66, 73);
     font-weight: 700;
     background: none;
@@ -46,6 +42,7 @@ Por una cuestion de espacio, entre otras cosas*/
     font-size: 0.9rem;
     border-radius: 9999px;
     box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+    text-decoration: none;
 }
 .button:hover {
     transform: translate(5px, -5px);
