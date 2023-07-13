@@ -1,6 +1,6 @@
 .container {
     display: inline-block;
-    margin-top: 15rem;
+    margin-top: 2rem;
     margin-left: 5rem;
     padding: 4rem;
     width: 60%;
@@ -127,8 +127,8 @@
   
   .containermodal {
     position: relative;
-    top: 60rem;
-    left: 20rem;
+    top: 50rem;
+    left: 22rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -174,7 +174,7 @@
     font-size:1rem;
     font-style: italic;
     transition:.6s;
-	color: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
+    color: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
     text-shadow: 2px 2px 10px rgb(66, 66, 73);
 }
 .closemodal{

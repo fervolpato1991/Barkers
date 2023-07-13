@@ -1,6 +1,6 @@
 .container {
-    display: inline-block; /* Cambia a display inline-block para que ocupe solo el contenido necesario */
-    margin-top: 15rem;
+    display: inline-block;
+    margin-top: 1rem;
     padding: 2rem;
     box-sizing: border-box;
     border-radius: 5rem;

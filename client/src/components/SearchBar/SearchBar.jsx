@@ -67,41 +67,37 @@ const SearchBar = () => {
    dispatch(getAllDogs());
 }
 
-   return (
-      <div  className={style.container}>
-         <ul>
-         <li>
-            <AlphabeticSort dogs={dogs}/>
-          </li>
-          <li>
-            <WeightSort dogs={dogs}/>
-          </li>
-          <li>
-            <APIorDBFilter
-              APIDBHandler={APIDBHandler} 
-            />
-          </li>
-          <li>
-            <TemperamentFilter
-              form={form}
-              allTemperaments={allTemperaments}
-              temperamentsHandler={temperamentsHandler}
-            />
-          </li>
-          <li>
-            <button
-              type="submit"
-              onClick={clearHandler}
-              className={style.button}
-            >
-              Close Filters
-            </button>
-          </li>
-         </ul>
-         <input placeholder="Search..." type='search' onChange={handleChange} value={searchName.name} className={style.input}/>
-         <button className={style.searchbutton} onClick={handleSubmit}>Search Breed</button>
-      </div>
-   );
+return (
+  <div className={style.container}>
+    <div className={style.row}>
+      <AlphabeticSort dogs={dogs} />
+      <WeightSort dogs={dogs} />
+      <APIorDBFilter APIDBHandler={APIDBHandler} />
+      <TemperamentFilter
+        form={form}
+        allTemperaments={allTemperaments}
+        temperamentsHandler={temperamentsHandler}
+      />
+      <button
+        type="submit"
+        onClick={clearHandler}
+        className={style.button}
+      >
+        Close Filters
+      </button>
+      <input
+      placeholder="Search..."
+      type="search"
+      onChange={handleChange}
+      value={searchName.name}
+      className={style.input}
+    />
+        <button className={style.searchbutton} onClick={handleSubmit}>
+      Search Breed
+    </button>
+    </div>
+  </div>
+);
 }
 
-export default SearchBar
+export default SearchBar;

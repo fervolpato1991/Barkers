@@ -19,9 +19,9 @@ class TemperamentFilter extends Component {
           })}
         </select>
         <div className={style.temperament}>
-          {form.temperaments.map((element) => (
+          {/* {form.temperaments.map((element) => (
             <span key={element}>{element}</span>
-          ))}
+          ))} */}
         </div>
       </div>
     );

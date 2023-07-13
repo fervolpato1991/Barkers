@@ -1,11 +1,11 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import style from "./NavBar.module.css";
 
 const NavBar = () => {
     return (
-      <nav>
-        <div className={style.container}>
+      <nav className={style.container}>
+        <div className={style.row}>
           <Link to="/home" className={style.button}>
             Home
           </Link>

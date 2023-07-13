@@ -1,16 +1,20 @@
-.container{
-    position: absolute;
-    bottom: 85%;
-    left: 5%;
-}
-.title{
+.container {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+  }
+  
+  .title {
     font-size: 1.2em;
     font-style: italic;
-    transition:.6s;
-	color: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
+    transition: .6s;
+    color: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
     text-shadow: 2px 2px 10px rgb(66, 66, 73);
-}
-select{
+  }
+  
+  select {
     color: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
     font-weight: 700;
     background: none;
@@ -20,10 +24,11 @@ select{
     font-size: 0.9rem;
     border-radius: 9999px;
     box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
-}
-option{
+  }
+  
+  option {
     background-color: rgba(199, 199, 199, 0.55);
     font-style: oblique;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: 700;
-}
+  }
