@@ -50,7 +50,7 @@ const FormPage = () => {
         event.preventDefault();
         const error = validation(form);
         if (error === null) {
-            axios.post("http://localhost:3001/dogs", form)
+            axios.post("https://barkers-server.onrender.com/dogs", form)
                 .then(res => {
                     setIsApiError(false);
                     setApiResponse(res.data.message);
